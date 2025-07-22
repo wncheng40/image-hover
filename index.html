@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .container:hover .overlay {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="Marilyn Shots.png" alt="圖片" class="image" />
+    <div class="overlay">懸停顯示的說明文字</div>
+  </div>
+</body>
+</html>

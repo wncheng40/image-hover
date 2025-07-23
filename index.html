@@ -1,13 +1,20 @@
 <style>
-  /* 圖片容器：這是所有東西的基礎框架 */
+  /* 新增：超連結包裝的樣式 */
+  .custom-link-wrapper {
+    display: inline-block; /* 讓連結可以正確地包住整個區塊 */
+    text-decoration: none; /* 移除超連結預設的底線 */
+    color: inherit; /* 讓裡面的文字顏色繼承設定，而不是預設的藍色 */
+    cursor: pointer; /* 讓滑鼠游標顯示為可點擊的手指圖示 */
+  }
+
+  /* 圖片容器 */
   .custom-image-container {
     position: relative;
     width: 100%;
-    max-width: 500px; /* 您可以調整圖片的最大寬度 */
+    max-width: 500px;
     display: inline-block;
-    overflow: hidden; /* 關鍵！確保放大的圖片不會超出邊框 */
-    font-family: "Helvetica Neue", Arial, "蘋方-繁", "Microsoft JhengHei", sans-serif; /* 設定通用的現代字體 */
-    border-radius: 8px; /* (可選) 增加圓角讓外觀更柔和 */
+    overflow: hidden;
+    font-family: "Helvetica Neue", Arial, "蘋方-繁", "Microsoft JhengHei", sans-serif;
   }
 
   /* 原始圖片的樣式：設定初始放大 */
@@ -15,15 +22,13 @@
     display: block;
     width: 100%;
     height: auto;
-    /* --- 初始狀態：圖片放大 10% --- */
     transform: scale(1.3);
-    /* --- 動畫效果：讓圖片的縮小過程更平滑 --- */
     transition: transform 0.5s ease-out;
   }
 
-  /* 當滑鼠懸停時，讓圖片縮小到正常尺寸 */
+  /* 滑鼠懸停時，縮小圖片 */
   .custom-image-container:hover .base-image {
-    transform: scale(1); /* 縮小到 100% */
+    transform: scale(1);
   }
 
   /* 文字圖層的樣式 */
@@ -33,57 +38,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    
-    /* --- 淺藍色背景 --- */
-    background-color: rgba(173, 216, 230, 0.85);
-    
-    /* --- 黑色文字 (在淺藍色背景上更清晰) --- */
-    color: black;
-    
-    /* --- 讓文字垂直和水平置中 --- */
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
-    
-    /* --- 動畫初始狀態：在底部下方且透明 --- */
     opacity: 0;
     transform: translateY(100%);
-    
-    /* --- 動畫效果：讓文字圖層出現的過程更平滑 --- */
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   }
 
-  /* 當滑鼠懸停在「整個容器」上時，觸發文字圖層動畫 */
+  /* 滑鼠懸停時，顯示文字圖層 */
   .custom-image-container:hover .text-overlay {
-    opacity: 1; /* 變為完全不透明 */
-    transform: translateY(0); /* 移動回到原位，產生由下往上效果 */
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* 文字標題的樣式 */
   .text-overlay h3 {
     margin: 0 0 10px 0;
-    font-size: 1.2em; /* 調整標題大小 */
+    font-size: 1.2em;
     font-weight: bold;
   }
 
   /* 說明文字的樣式 */
   .text-overlay p {
     margin: 0;
-    font-size: 0.8em; /* 調整說明文字大小 */
+    font-size: 0.8em;
     line-height: 1.5;
   }
 </style>
 
-<div class="custom-image-container">
-  
-  <img class="base-image" src="https://github.com/wncheng40/image-hover/blob/main/Marilyn%20Shots.png?raw=true" alt="專案圖片">
-  
-  <div class="text-overlay">
-    <h3>專案標題 (Project Title)</h3>
+<a class="custom-link-wrapper" href="https://www.google.com" target="_blank" rel="noopener noreferrer">
 
-    <p>這裡是您的專案詳細說明文字，滑鼠移到圖片上時，圖片會縮小，同時這段內容會從下方滑動出現。</p>
+  <div class="custom-image-container">
+    
+    <img class="base-image" src="https://github.com/wncheng40/image-hover/blob/main/Marilyn%20Shots.png?raw=true" alt="專案圖片">
+    
+    <div class="text-overlay">
+      <h3>專案標題 (Project Title)</h3>
+
+      <p>這裡是您的專案詳細說明文字，滑鼠移到圖片上時，圖片會縮小，同時這段內容會從下方滑動出現。</p>
+    </div>
   </div>
-</div>
+
+</a>
